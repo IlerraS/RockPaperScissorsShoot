@@ -71,7 +71,7 @@ for(let i=0; i <= 5; i++)
     }
 }
 
-
+//end of game
 if(player_wins > computer_wins)
 {
     console.log(`You won ${player_wins} out of 5!`);
