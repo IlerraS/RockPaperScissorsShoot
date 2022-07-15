@@ -1,0 +1,27 @@
+.container
+{
+    display: flex;
+    width: auto;
+    height: auto;
+    margin: auto;
+}
+
+.game-rules
+{
+    display: flex;
+    justify-content: center;
+    color: blue;
+}
+.button-container
+{
+    display: flex;
+    flex-direction: column;
+}
+.round-results
+{
+    display: none;
+}
+.final-result
+{
+    display: none;
+}

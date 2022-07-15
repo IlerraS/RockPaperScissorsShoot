@@ -1,0 +1,25 @@
+.Number
+{
+    background-color: rgb(233, 141, 176);
+    font-family: Verdana, DejaVu Sans, sans-serif;
+}
+
+.Number.Cool
+{
+    background-color: rgb(233, 141, 176);
+    font-family: Verdana, DejaVu Sans, sans-serif;
+    font-size: 24px;
+}
+
+#FirstID
+{
+    color: blue;
+    font-size: 36px;
+}
+
+#SecondID
+{
+    background-color: lightgreen;
+    font-size: 24px;
+    font-weight: bold;
+}
