@@ -1,9 +1,18 @@
 .container
 {
     display: flex;
+    flex-direction: column;
     width: auto;
     height: auto;
     margin: auto;
+}
+
+.greetings
+{
+    display: flex;
+    justify-content: center;
+    color: black;
+    font-size: 24px;
 }
 
 .game-rules
@@ -11,17 +20,12 @@
     display: flex;
     justify-content: center;
     color: blue;
+    font-size: 24px;
 }
 .button-container
 {
     display: flex;
     flex-direction: column;
-}
-.round-results
-{
-    display: none;
-}
-.final-result
-{
-    display: none;
+    margin: auto;
+    cursor: pointer;
 }
