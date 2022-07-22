@@ -25,7 +25,15 @@
 .button-container
 {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     margin: auto;
-    cursor: pointer;
+    gap: 20px;
+}
+.round-result
+{
+    display: flex;
+    justify-content: center;
+    margin: 24px;
+    color: rgb(89, 73, 16);
+    font-size: 24px;
 }
