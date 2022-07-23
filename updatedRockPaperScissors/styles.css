@@ -5,6 +5,7 @@
     width: auto;
     height: auto;
     margin: auto;
+    border: 1px red;
 }
 
 .greetings
@@ -13,6 +14,7 @@
     justify-content: center;
     color: black;
     font-size: 24px;
+    border: 1px solid  red;
 }
 
 .game-rules
@@ -21,6 +23,7 @@
     justify-content: center;
     color: blue;
     font-size: 24px;
+    border: 1px solid  red;
 }
 .button-container
 {
@@ -28,6 +31,7 @@
     flex-direction: row;
     margin: auto;
     gap: 20px;
+    border: 1px solid  red;
 }
 .round-result
 {
@@ -36,4 +40,6 @@
     margin: 24px;
     color: rgb(89, 73, 16);
     font-size: 24px;
+    border: 1px;
+    border: 1px solid  red;
 }

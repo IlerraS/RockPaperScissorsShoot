@@ -7,6 +7,7 @@
     <meta name="author" content="Illerra">
     <meta name="description" content="A rock paper scissors game that uses simple UI buttons and a display log to show results.">
     <link rel="stylesheet" href="styles.css">
+    <script src="gameCodeHere.js" defer></script>
     <title>Rock, Paper, Scissors, Shoot!</title>
 </head>
 <body>
@@ -14,12 +15,11 @@
         <p class="greetings">Welcome to rock, paper, scissors!</p>
         <p class="game-rules">Select one of the options and see if you win against the machine! Best two out of five!</p>
         <div class="button-container">
-            <button id="Rock">Rock</button>
-            <button id="Paper">Paper</button>
-            <button id="Scissors">Scissors</button>
+            <button class="choice" value="Rock">Rock</button>
+            <button class="choice" value="Paper">Paper</button>
+            <button class="choice" value="Scissors">Scissors</button>
         </div>
         <div class="round-result">Outcome Appears inside the console</div>
     </div>
-    <script src="gameCodeHere.js"></script>
 </body>
 </html>
