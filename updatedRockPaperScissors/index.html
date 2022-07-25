@@ -12,14 +12,19 @@
 </head>
 <body>
     <div class="container">
-        <p class="greetings">Welcome to rock, paper, scissors!</p>
-        <p class="game-rules">Select one of the options and see if you win against the machine! Best two out of five!</p>
+        <h4 class="greetings">Welcome to rock, paper, scissors!</h4>
+        <p class="game-rules">Select one of the options and see if you win against the machine! Best 3 out of five!</p>
         <div class="button-container">
             <button class="choice" value="Rock">Rock</button>
             <button class="choice" value="Paper">Paper</button>
             <button class="choice" value="Scissors">Scissors</button>
         </div>
-        <div class="round-result">Outcome Appears inside the console</div>
+        <div class="tallyWinner">Winner:<div class="reading-results"></div></div>
+        <div class="roundResults">
+            <div class="Player"></div>
+            <div class="PC"></div>
+        </div>
+        <button id="reload">Play Again!</button>
     </div>
 </body>
 </html>

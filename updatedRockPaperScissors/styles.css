@@ -5,7 +5,6 @@
     width: auto;
     height: auto;
     margin: auto;
-    border: 1px red;
 }
 
 .greetings
@@ -14,32 +13,27 @@
     justify-content: center;
     color: black;
     font-size: 24px;
-    border: 1px solid  red;
 }
 
 .game-rules
 {
     display: flex;
     justify-content: center;
-    color: blue;
+    color: rgb(0, 0, 0);
     font-size: 24px;
-    border: 1px solid  red;
 }
-.button-container
+.button-container, #reload, .roundResults
 {
     display: flex;
     flex-direction: row;
     margin: auto;
     gap: 20px;
-    border: 1px solid  red;
 }
-.round-result
+.tallyWinner
 {
     display: flex;
     justify-content: center;
     margin: 24px;
     color: rgb(89, 73, 16);
     font-size: 24px;
-    border: 1px;
-    border: 1px solid  red;
 }

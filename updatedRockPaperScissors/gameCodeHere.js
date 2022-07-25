@@ -1,16 +1,17 @@
-let winners = [];
+'use strict';
+let playerWins = 0;
+let pcWins = 0;
+let counter = 0;
+
+const btnReload = document.querySelector('#reload');
+btnReload.addEventListener('click', () => {location.reload()});
 
 let StartGame = () =>
 {
     const playerButtons = document.querySelectorAll('.choice')
 
-    playerButtons.forEach((choice) => 
-    {
-        choice.addEventListener('click', function (e)
-        {
-            console.log(e.target.value);
-            playRound(e.target.value);
-        });
+    playerButtons.forEach((choice) => {
+        choice.addEventListener('click', playersChoice);
     });
 }
 
@@ -18,7 +19,6 @@ let computerChoose = () =>
 {
     let choices = ["Rock", "Paper", "Scissors"];
     let pcChoice = choices[Math.floor(Math.random()*choices.length)];
-    console.log(pcChoice);
 
     return pcChoice;
 }
@@ -26,58 +26,94 @@ let computerChoose = () =>
 let playRound = (playerValue) =>
 {
     let pcChoice = computerChoose();
-    
-    decideWinner(playerValue, pcChoice);
-
+    counter++;
+    if (counter === 5)
+    {
+        endGame();
+    }
+    else
+    {
+        decideWinner(playerValue, pcChoice);
+        displayWins();
+    }
 }
 
 let decideWinner = (userChoice, pcChoice) =>
 {
     if( userChoice === "Rock")
         {
-            if(pcChoice === "Rock")
+            if (pcChoice === "Paper")
             {
-                console.log("Tie!");
-            }
-            else if (pcChoice === "Paper")
-            {
-                console.log("AI wins!");
+                pcWins++;
             }
             else
             {
-                console.log("Player wins!");
+                playerWins++;
             }
         }
         else if( userChoice === "Paper")
         {
             if(pcChoice === "Rock")
             {
-                console.log("Player wins!");
-            }
-            else if (pcChoice === "Paper")
-            {
-                console.log("Tie!");
+                playerWins++;
             }
             else
             {
-                console.log("AI wins!");
+                pcWins++;
             }
         }
         else if( userChoice === "Scissors")
         {
             if(pcChoice === "Rock")
             {
-                console.log("AI wins");
+                pcWins++;
             }
             else if (pcChoice === "Paper")
             {
-                console.log("Player wins!");
-            }
-            else
-            {
-                console.log("Tie!");
+                playerWins++;
             }
         }
+        if (playerWins > 2 || pcWins > 2)
+        {
+            endGame();
+        }
 }
+
+let displayWins = () =>
+{
+    const displayPlayer = document.querySelector('.Player');
+    const displayPC = document.querySelector('.PC');
+
+    displayPlayer.textContent = `Player: ${playerWins}`;
+    displayPC.textContent = `AI: ${pcWins}`;
+}
+
+let endGame = () =>
+{
+    const results = document.querySelector('.reading-results');
+    const tie = document.querySelector('.tallyWinner');
+    if (playerWins > pcWins)
+    {
+        results.textContent = " Player";
+    }
+    else if (playerWins < pcWins)
+    {
+        results.textContent = " AI";
+    }
+    else
+    {
+        tie.textContent = "Theres a Tie!";
+    }
+
+    const playerButtons = document.querySelectorAll('.choice')
+    playerButtons.forEach((choice) => {
+        choice.removeEventListener('click', playersChoice);
+    });
+}
+
+let playersChoice= (e) => 
+{
+    playRound(e.target.value);
+};
 
 StartGame();
