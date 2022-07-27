@@ -1,6 +1,7 @@
 'use strict';
 let playerWins = 0;
 let pcWins = 0;
+let ties = 0;
 let counter = 0;
 
 const btnReload = document.querySelector('#reload');
@@ -9,7 +10,6 @@ btnReload.addEventListener('click', () => {location.reload()});
 let StartGame = () =>
 {
     const playerButtons = document.querySelectorAll('.choice')
-
     playerButtons.forEach((choice) => {
         choice.addEventListener('click', playersChoice);
     });
@@ -27,14 +27,13 @@ let playRound = (playerValue) =>
 {
     let pcChoice = computerChoose();
     counter++;
-    if (counter === 5)
+    
+    decideWinner(playerValue, pcChoice);
+    displayWins();
+    
+    if (counter >= 5)
     {
         endGame();
-    }
-    else
-    {
-        decideWinner(playerValue, pcChoice);
-        displayWins();
     }
 }
 
@@ -46,9 +45,13 @@ let decideWinner = (userChoice, pcChoice) =>
             {
                 pcWins++;
             }
-            else
+            else if (pcChoice === "Scissors")
             {
                 playerWins++;
+            }
+            else
+            {
+                ties++;
             }
         }
         else if( userChoice === "Paper")
@@ -57,9 +60,13 @@ let decideWinner = (userChoice, pcChoice) =>
             {
                 playerWins++;
             }
-            else
+            else if (pcChoice === "Scissors")
             {
                 pcWins++;
+            }
+            else
+            {
+                ties++;
             }
         }
         else if( userChoice === "Scissors")
@@ -72,6 +79,10 @@ let decideWinner = (userChoice, pcChoice) =>
             {
                 playerWins++;
             }
+            else
+            {
+                ties++;
+            }
         }
         if (playerWins > 2 || pcWins > 2)
         {
@@ -83,9 +94,11 @@ let displayWins = () =>
 {
     const displayPlayer = document.querySelector('.Player');
     const displayPC = document.querySelector('.PC');
+    const displayTies = document.querySelector('.Ties');
 
     displayPlayer.textContent = `Player: ${playerWins}`;
     displayPC.textContent = `AI: ${pcWins}`;
+    displayTies.textContent = `Ties: ${ties}`;
 }
 
 let endGame = () =>
@@ -94,11 +107,11 @@ let endGame = () =>
     const tie = document.querySelector('.tallyWinner');
     if (playerWins > pcWins)
     {
-        results.textContent = " Player";
+        results.textContent = "Player";
     }
     else if (playerWins < pcWins)
     {
-        results.textContent = " AI";
+        results.textContent = "\tAI";
     }
     else
     {
