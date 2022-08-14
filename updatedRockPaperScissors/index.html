@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Illerra">
+    <meta name="description" content="A rock paper scissors game that uses simple UI buttons and a display log to show results.">
+    <link rel="stylesheet" href="styles.css">
+    <script src="gameCodeHere.js" defer></script>
+    <title>Rock, Paper, Scissors, Shoot!</title>
+</head>
+<body>
+    <div class="container">
+        <h4 class="greetings">Welcome to rock, paper, scissors!</h4>
+        <p class="game-rules">Select one of the options and see if you win against the machine! Best 3 out of five!</p>
+        <div class="button-container">
+            <button class="choice" data-type="Rock" value="1">Rock</button>
+            <button class="choice" data-type="Paper" value="2">Paper</button>
+            <button class="choice" data-type="Scissors" value="3">Scissors</button>
+        </div>
+        <div class="tallyWinner">Winner:<div style="margin-left: 20px;" class="reading-results"></div></div>
+        <div class="roundResults">
+            <div class="Player"></div>
+            <div class="PC"></div>
+        </div>
+        <div class="Ties"></div>
+        <button id="reload">Play Again!</button>
+    </div>
+</body>
+</html>
