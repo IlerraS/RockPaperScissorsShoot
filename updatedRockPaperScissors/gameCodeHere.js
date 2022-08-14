@@ -1,36 +1,20 @@
 'use strict';
+//global variables
 let playerWins = 0;
 let pcWins = 0;
 let ties = 0;
 let counter = 0;
-
+const btnPlayer = document.querySelectorAll('.choice')
 const btnReload = document.querySelector('#reload');
-btnReload.addEventListener('click', () => {location.reload()});
 
-let StartGame = () =>
+let playRound = (e) =>
 {
-    const playerButtons = document.querySelectorAll('.choice')
-    playerButtons.forEach((choice) => {
-        choice.addEventListener('click', playersChoice);
-    });
-}
-
-let computerChoose = () =>
-{
-    let choices = ["Rock", "Paper", "Scissors"];
-    let pcChoice = choices[Math.floor(Math.random()*choices.length)];
-
-    return pcChoice;
-}
-
-let playRound = (playerValue) =>
-{
-    let pcChoice = computerChoose();
+    let pcChoice = Math.floor(Math.random()*3);
     counter++;
     
-    decideWinner(playerValue, pcChoice);
+    decideWinner(e.target.value, pcChoice);
     displayWins();
-    
+
     if (counter >= 5)
     {
         endGame();
@@ -39,13 +23,14 @@ let playRound = (playerValue) =>
 
 let decideWinner = (userChoice, pcChoice) =>
 {
-    if( userChoice === "Rock")
+
+    if( userChoice == 1)
         {
-            if (pcChoice === "Paper")
+            if (pcChoice == 2)
             {
                 pcWins++;
             }
-            else if (pcChoice === "Scissors")
+            else if (pcChoice == 3)
             {
                 playerWins++;
             }
@@ -54,13 +39,13 @@ let decideWinner = (userChoice, pcChoice) =>
                 ties++;
             }
         }
-        else if( userChoice === "Paper")
+        else if( userChoice == 2)
         {
-            if(pcChoice === "Rock")
+            if(pcChoice == 1)
             {
                 playerWins++;
             }
-            else if (pcChoice === "Scissors")
+            else if (pcChoice == 3)
             {
                 pcWins++;
             }
@@ -69,13 +54,13 @@ let decideWinner = (userChoice, pcChoice) =>
                 ties++;
             }
         }
-        else if( userChoice === "Scissors")
+        else if( userChoice == 3)
         {
-            if(pcChoice === "Rock")
+            if(pcChoice == 1)
             {
                 pcWins++;
             }
-            else if (pcChoice === "Paper")
+            else if (pcChoice == 2)
             {
                 playerWins++;
             }
@@ -117,16 +102,15 @@ let endGame = () =>
     {
         tie.textContent = "Theres a Tie!";
     }
-
-    const playerButtons = document.querySelectorAll('.choice')
-    playerButtons.forEach((choice) => {
-        choice.removeEventListener('click', playersChoice);
+    
+    btnPlayer.forEach((choice) => {
+        choice.removeEventListener('click', playRound);
     });
 }
 
-let playersChoice= (e) => 
-{
-    playRound(e.target.value);
-};
 
-StartGame();
+btnReload.addEventListener('click', () => {location.reload()});
+btnPlayer.forEach((choice) => 
+{
+    choice.addEventListener('click', playRound);
+});
