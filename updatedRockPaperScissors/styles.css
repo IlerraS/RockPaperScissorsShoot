@@ -2,7 +2,7 @@ body
 {
     height: 100vw;
     width: 100vw;
-    background-color: rgb(19, 18, 18);
+    background-color: rgb(150, 110, 110);
 }
 .container
 {
@@ -14,7 +14,7 @@ body
 {
     display: flex;
     justify-content: center;
-    color: rgb(247, 247, 247);
+    color: rgb(71, 62, 62);
     font-size: 24px;
 }
 
@@ -22,10 +22,9 @@ body
 {
     display: flex;
     justify-content: center;
-    background-color: gainsboro;
     padding-left: 50px;
     padding-right: 50px;
-    color: rgb(0, 0, 0);
+    color: rgb(71, 62, 62);
     font-size: 24px;
 }
 .button-container, #reload, .roundResults
@@ -34,13 +33,18 @@ body
     flex-direction: row;
     margin: auto;
     gap: 20px;
-    color: rgb(177, 143, 18);
+    color: rgb(71, 62, 62);
+}
+.choice, #reload
+{
+    background-color: rgba(97, 66, 66, 0.653);
+    color: rgba(255, 235, 205, 0.482);
 }
 .tallyWinner, .Ties
 {
     display: flex;
     justify-content: center;
     margin: 24px;
-    color: rgb(177, 143, 18);
+    color: rgb(71, 62, 62);
     font-size: 24px;
 }

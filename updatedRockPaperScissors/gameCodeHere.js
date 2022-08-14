@@ -9,11 +9,13 @@ const btnReload = document.querySelector('#reload');
 
 let playRound = (e) =>
 {
-    let pcChoice = Math.floor(Math.random()*3);
+    let userChoice = e.target.value
+    let pcChoice = Math.floor(Math.random()*3+1);
     counter++;
     
-    decideWinner(e.target.value, pcChoice);
+    decideWinner(userChoice, pcChoice);
     displayWins();
+    console.log(userChoice, pcChoice)
 
     if (counter >= 5)
     {
@@ -23,8 +25,7 @@ let playRound = (e) =>
 
 let decideWinner = (userChoice, pcChoice) =>
 {
-
-    if( userChoice == 1)
+    if(userChoice == 1)
         {
             if (pcChoice == 2)
             {
@@ -69,7 +70,7 @@ let decideWinner = (userChoice, pcChoice) =>
                 ties++;
             }
         }
-        if (playerWins > 2 || pcWins > 2)
+        if (playerWins > 2 || pcWins > 2 || ties > 3)
         {
             endGame();
         }
@@ -90,17 +91,17 @@ let endGame = () =>
 {
     const results = document.querySelector('.reading-results');
     const tie = document.querySelector('.tallyWinner');
-    if (playerWins > pcWins)
+    if (ties > 3)
+    {
+        tie.textContent = "Theres a Tie!";
+    }
+    else if (playerWins > pcWins)
     {
         results.textContent = "Player";
     }
     else if (playerWins < pcWins)
     {
         results.textContent = "\tAI";
-    }
-    else
-    {
-        tie.textContent = "Theres a Tie!";
     }
     
     btnPlayer.forEach((choice) => {
