@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="index.js" defer></script>
     <title>Library</title>
 </head>
 <body>
-    <div class="warpper">
-        <form class="enter-book">
+    <!-- List of "Cards" -->
+    <div class="List-card">
+    </div>
+    <!-- Form if no books in list -->
+    <div id="wrapper" style="display: none;">
             <input type="text" class="author">
             <input type="text" class="title">
             <input type="number" class="pages">
@@ -17,8 +19,8 @@
                 <option value="Read">Read</option>
                 <option value="not-Read">Not Read</option>
             </select>
-            <button class="submit-btn">Submit</button>
-        </form>
+            <button id="submit-btn">Submit</button>
     </div>
+    <script src="index.js"></script>
 </body>
 </html>
