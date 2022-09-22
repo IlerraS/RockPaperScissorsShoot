@@ -39,8 +39,23 @@ class Book
 
 //GLOBALS
 //HTML Elemets
-const submitbtn = document.getElementById('submit-btn');
+const table = document.getElementById('')
+// const submitbtn = document.getElementById('submit-btn');
 
 //Within Script
-const myLibrary = [];
+const myLibrary = 
+[
+    {
+        author: 'Faker',
+        title: 'Mr. Fake',
+        pageNum: 10,
+        beenRead: false,
+    },
+    {
+        author: 'Mrs. Fakes',
+        title: 'The Fakes',
+        pageNum: 210,
+        beenRead: true,
+    },
+];
 

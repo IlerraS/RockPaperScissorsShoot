@@ -1,0 +1,17 @@
+body
+{
+    height: 0;
+    width: 0;
+}
+
+#table-Books
+{
+    letter-spacing: 1px;
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+
+td, th {
+    border: 1px solid rgb(190,190,190);
+    padding: 10px 20px;
+  }
